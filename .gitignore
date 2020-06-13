@@ -1,0 +1,8 @@
+*
+!*.*
+!TODO
+!README
+!*/
+
+*.o
+a.out
