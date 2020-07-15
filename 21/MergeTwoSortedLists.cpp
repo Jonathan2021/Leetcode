@@ -29,19 +29,9 @@ ListNode *mergeTwoLists(ListNode* l1, ListNode* l2)
 {
     ListNode base;
     ListNode *ptr = &base;
-    while (l1 || l2)
+    while (l1 && l2)
     {
-        if (!l1)
-        {
-            ptr->next = l2;
-            l2 = nullptr;
-        }
-        else if (!l2)
-        {
-            ptr->next = l1;
-            l1 = nullptr;
-        }
-        else if (l1->val < l2->val)
+        if (l1->val < l2->val)
         {
             ptr->next = l1;
             l1 = l1->next;
@@ -53,6 +43,7 @@ ListNode *mergeTwoLists(ListNode* l1, ListNode* l2)
         }
         ptr = ptr->next;
     }
+    ptr->next = l1 ? l1 : l2;
     return base.next;
 }
 
